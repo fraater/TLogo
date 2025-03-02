@@ -21,6 +21,7 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "./",
     "paths": {
+      "@/types": ["src/types/types.ts"],
       "@/components/*": ["src/components/*"],
       "@/ui/*": ["src/*"],
       "@/tauri/*": ["src-tauri/*"]

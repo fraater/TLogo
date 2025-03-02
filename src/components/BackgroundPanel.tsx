@@ -4,15 +4,52 @@ import {
   PanelElementContent,
   PanelElementLabel,
 } from '@/components/Panel';
+import type { IconData } from '@/types';
 
-const BackgroundPanel = () => {
+const BackgroundPanel = ({
+  iconData,
+  onChange,
+}: {
+  iconData: IconData;
+  onChange: (data: IconData) => void;
+}) => {
+  const { background } = iconData;
+
   return (
     <>
-      {/* TODO */}
       <PanelElement>
-        <PanelElementLabel lLabel='Rounded' rLabel='10 px' />
+        <PanelElementLabel
+          lLabel='Rounded'
+          rLabel={`${background.rounded} px`}
+        />
         <PanelElementContent>
-          <Slider />
+          <Slider
+            value={background.rounded}
+            onChange={(e) =>
+              onChange({
+                ...iconData,
+                background: { ...background, rounded: Number(e.target.value) },
+              })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel
+          lLabel='Padding'
+          rLabel={`${background.padding} px`}
+        />
+        <PanelElementContent>
+          <Slider
+            value={background.padding}
+            onChange={(e) =>
+              onChange({
+                ...iconData,
+                background: { ...background, padding: Number(e.target.value) },
+              })
+            }
+          />
         </PanelElementContent>
       </PanelElement>
     </>

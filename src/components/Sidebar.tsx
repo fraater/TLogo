@@ -1,4 +1,4 @@
-import { IconType } from 'react-icons';
+import type { IconType } from 'react-icons';
 import { MdDesignServices, MdPhotoLibrary } from 'react-icons/md';
 
 const Sidebar = ({ onClick }: { onClick: (id: number) => void }) => {

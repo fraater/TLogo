@@ -1,8 +1,25 @@
 import IconPanel from '@/components/IconPanel';
 import BackgroundPanel from '@/components/BackgroundPanel';
+import type { IconData } from '@/types';
 
-const Panel = ({ id }: { id: number }) => {
-  let PanelContent: (() => JSX.Element) | null = null;
+const Panel = ({
+  id,
+  iconData,
+  onChange,
+}: {
+  id: number;
+  iconData: IconData;
+  onChange: (data: IconData) => void;
+}) => {
+  let PanelContent:
+    | (({
+        iconData,
+        onChange,
+      }: {
+        iconData: IconData;
+        onChange: (data: IconData) => void;
+      }) => JSX.Element)
+    | null = null;
 
   switch (id) {
     case 1:
@@ -15,7 +32,7 @@ const Panel = ({ id }: { id: number }) => {
 
   return (
     <section className='bg-white rounded-xl p-3.5 shadow-sm w-44 space-y-5.5'>
-      {PanelContent && <PanelContent />}
+      {PanelContent && <PanelContent iconData={iconData} onChange={onChange} />}
     </section>
   );
 };
