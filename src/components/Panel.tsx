@@ -14,14 +14,14 @@ const Panel = ({ id }: { id: number }) => {
   }
 
   return (
-    <section className='bg-white rounded-xl p-3 shadow-sm w-44'>
+    <section className='bg-white rounded-xl p-3.5 shadow-sm w-44 space-y-5.5'>
       {PanelContent && <PanelContent />}
     </section>
   );
 };
 
 const PanelElement = ({ children }: { children: React.ReactNode }) => {
-  return <div>{children}</div>;
+  return <div className='space-y-1.5'>{children}</div>;
 };
 
 const PanelElementLabel = ({
@@ -32,9 +32,9 @@ const PanelElementLabel = ({
   rLabel?: string;
 }) => {
   return (
-    <div className='flex justify-between text-sm'>
-      <span>{lLabel}</span>
-      {rLabel && <span>{rLabel}</span>}
+    <div className='flex justify-between items-center text-neutral-800'>
+      <span className='text-sm'>{lLabel}</span>
+      {rLabel && <span className='text-xs'>{rLabel}</span>}
     </div>
   );
 };

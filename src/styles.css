@@ -1,7 +1,33 @@
 @import 'tailwindcss';
 
+@font-face {
+  font-family: 'BricolageGrotesque';
+  src: url('/src/assets/fonts/BricolageGrotesque-VariableFont.ttf')
+    format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@theme {
+  --font-bricolage_grotesque: 'BricolageGrotesque', sans-serif;
+}
+
 @layer base {
+  html {
+    @apply font-bricolage_grotesque;
+  }
+
   body {
     @apply bg-neutral-100;
+  }
+}
+
+@layer components {
+  .slider {
+    @apply appearance-none h-4.5 bg-neutral-200 rounded-sm w-[9rem] overflow-hidden cursor-pointer;
+  }
+
+  .slider::-webkit-slider-thumb {
+    @apply appearance-none bg-white size-4.5 border-2 rounded-sm border-amber-600 shadow-[-9.5rem_0_0_9rem_var(--color-amber-600)];
   }
 }
