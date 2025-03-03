@@ -1,10 +1,13 @@
 import Slider from '@/components/Slider';
+import IconPicker from '@/components/IconPicker';
+import IconButton from '@/components/IconButton';
+import type { IconData } from '@/types';
 import {
   PanelElement,
   PanelElementContent,
   PanelElementLabel,
 } from '@/components/Panel';
-import type { IconData } from '@/types';
+import { useState } from 'react';
 
 const IconPanel = ({
   iconData,
@@ -13,6 +16,7 @@ const IconPanel = ({
   iconData: IconData;
   onChange: (data: IconData) => void;
 }) => {
+  const [showIconPicker, setShowIconPicker] = useState<boolean>(false);
   const { icon } = iconData;
 
   return (
@@ -20,12 +24,23 @@ const IconPanel = ({
       <PanelElement>
         <PanelElementLabel
           lLabel='Icon'
-          rLabel={icon.Icon.name.replace('Lu', '')}
+          rLabel={icon.Icon.name
+            .replace('Lu', '')
+            .split(/(?=[A-Z])/)
+            .join(' ')}
         />
         <PanelElementContent>
-          <button className='group hover:bg-neutral-300 size-9 bg-neutral-200 rounded-sm flex justify-center items-center p-1.5 cursor-pointer transition-colors duration-200'>
-            <icon.Icon className='text-2xl text-neutral-800 group-hover:scale-105' />
-          </button>
+          <IconButton onClick={() => setShowIconPicker(true)}>
+            <icon.Icon className='group-hover:scale-105' />
+          </IconButton>
+          {showIconPicker && (
+            <IconPicker
+              onChange={(Icon) =>
+                onChange({ ...iconData, icon: { ...icon, Icon } })
+              }
+              onClose={() => setShowIconPicker(false)}
+            />
+          )}
         </PanelElementContent>
       </PanelElement>
 
