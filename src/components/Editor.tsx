@@ -22,7 +22,7 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
     <section className='flex-[1] shadow-sm ml-3 relative'>
       <GridBackground className='flex justify-center items-center'>
         <div
-          className='h-1/2 aspect-square bg-neutral-300/15 border-2 border-dashed border-neutral-300/35'
+          className='h-1/2 aspect-square bg-neutral-300/20 border-2 border-dashed border-neutral-300/45'
           style={{ padding: background.padding + 'px' }}
         >
           <div
