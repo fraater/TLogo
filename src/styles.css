@@ -42,4 +42,37 @@
   .slider::-webkit-slider-thumb {
     @apply appearance-none bg-white size-4.5 border-2 rounded-sm border-amber-600 shadow-[-9.5rem_0_0_9rem_var(--color-amber-600)];
   }
+
+  .color-picker {
+    @apply bg-neutral-200/60 rounded-xl overflow-hidden;
+  }
+
+  .color-picker .react-colorful {
+    @apply !w-full !gap-2.5;
+  }
+
+  .color-picker .react-colorful__pointer {
+    @apply !size-4;
+  }
+
+  .color-picker .react-colorful__saturation {
+    @apply !rounded-none;
+  }
+
+  .color-picker .react-colorful__last-control {
+    @apply !rounded-none;
+  }
+
+  .color-picker .react-colorful__hue {
+    @apply !mt-1;
+  }
+
+  .color-picker .react-colorful__alpha {
+    @apply !mb-3;
+  }
+
+  .color-picker .react-colorful__hue,
+  .color-picker .react-colorful__alpha {
+    @apply !h-3 !rounded-full !mx-3;
+  }
 }

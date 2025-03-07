@@ -11,6 +11,7 @@ const App = () => {
     icon: {
       Icon: LuCarrot,
       size: 200,
+      borderColor: '#ffffff',
     },
     background: {
       rounded: 50,

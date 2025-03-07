@@ -31,8 +31,7 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
             style={{ borderRadius: background.rounded + 'px' }}
           >
             <icon.Icon
-              className='text-white'
-              style={{ fontSize: icon.size + 'px' }}
+              style={{ fontSize: icon.size + 'px', stroke: icon.borderColor }}
             />
           </div>
         </div>

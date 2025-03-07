@@ -1,6 +1,7 @@
 import Slider from '@/components/Slider';
 import IconPicker from '@/components/IconPicker';
 import IconButton from '@/components/IconButton';
+import ColorPicker from '@/components/ColorPicker';
 import type { IconData } from '@/types';
 import {
   PanelElement,
@@ -56,6 +57,18 @@ const IconPanel = ({
                 ...iconData,
                 icon: { ...icon, size: Number(e.target.value) },
               })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel lLabel='Border color' />
+        <PanelElementContent>
+          <ColorPicker
+            color={icon.borderColor}
+            onChange={(e) =>
+              onChange({ ...iconData, icon: { ...icon, borderColor: e } })
             }
           />
         </PanelElementContent>
