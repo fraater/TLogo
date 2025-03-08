@@ -27,8 +27,11 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
         >
           <div
             ref={iconRef}
-            className='bg-black size-full flex justify-center items-center'
-            style={{ borderRadius: background.rounded + 'px' }}
+            className='size-full flex justify-center items-center'
+            style={{
+              borderRadius: background.rounded + 'px',
+              backgroundColor: background.bgColor,
+            }}
           >
             <icon.Icon
               style={{

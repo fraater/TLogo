@@ -1,4 +1,5 @@
 import Slider from '@/components/Slider';
+import ColorPicker from '@/components/ColorPicker';
 import {
   PanelElement,
   PanelElementContent,
@@ -24,6 +25,8 @@ const BackgroundPanel = ({
         />
         <PanelElementContent>
           <Slider
+            min={0}
+            max={200}
             value={background.rounded}
             onChange={(e) =>
               onChange({
@@ -47,6 +50,21 @@ const BackgroundPanel = ({
               onChange({
                 ...iconData,
                 background: { ...background, padding: Number(e.target.value) },
+              })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel lLabel='Background color' />
+        <PanelElementContent>
+          <ColorPicker
+            color={background.bgColor}
+            onChange={(e) =>
+              onChange({
+                ...iconData,
+                background: { ...background, bgColor: e },
               })
             }
           />

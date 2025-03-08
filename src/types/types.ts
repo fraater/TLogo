@@ -12,5 +12,6 @@ export type IconData = {
   background: {
     rounded: number;
     padding: number;
+    bgColor: string;
   };
 };

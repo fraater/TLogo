@@ -19,6 +19,7 @@ const App = () => {
     background: {
       rounded: 50,
       padding: 10,
+      bgColor: '#000000',
     },
   });
 

@@ -73,6 +73,6 @@
 
   .color-picker .react-colorful__hue,
   .color-picker .react-colorful__alpha {
-    @apply !h-3 !rounded-full !mx-3;
+    @apply !h-3 !rounded-full !mx-3 !shadow-xs;
   }
 }
