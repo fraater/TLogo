@@ -22,21 +22,21 @@
   }
 
   ::-webkit-scrollbar {
-    @apply w-2.5;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-amber-600 rounded-xl border-2 border-neutral-100;
+    @apply w-1.5;
   }
 
   ::-webkit-scrollbar-track {
-    @apply bg-neutral-100 rounded-xl;
+    @apply my-2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-amber-600 rounded-xl;
   }
 }
 
 @layer components {
   .slider {
-    @apply appearance-none h-4.5 bg-neutral-200 rounded-sm w-[9rem] overflow-hidden cursor-pointer;
+    @apply appearance-none h-4.5 bg-neutral-200 rounded-sm w-full overflow-hidden cursor-pointer;
   }
 
   .slider::-webkit-slider-thumb {

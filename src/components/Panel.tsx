@@ -31,7 +31,7 @@ const Panel = ({
   }
 
   return (
-    <section className='bg-white rounded-xl p-3.5 shadow-sm w-52 space-y-5.5'>
+    <section className='bg-white rounded-xl p-3.5 shadow-sm w-52 space-y-5.5 overflow-y-auto'>
       {PanelContent && <PanelContent iconData={iconData} onChange={onChange} />}
     </section>
   );

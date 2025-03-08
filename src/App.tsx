@@ -11,7 +11,10 @@ const App = () => {
     icon: {
       Icon: LuCarrot,
       size: 200,
-      borderColor: '#ffffff',
+      rotate: 0,
+      borderWidth: 2,
+      borderColor: '#ff8000',
+      fillColor: '#ffffff00',
     },
     background: {
       rounded: 50,

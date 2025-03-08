@@ -50,12 +50,50 @@ const IconPanel = ({
         <PanelElementContent>
           <Slider
             min={50}
-            max={200}
+            max={400}
             value={icon.size}
             onChange={(e) =>
               onChange({
                 ...iconData,
                 icon: { ...icon, size: Number(e.target.value) },
+              })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel lLabel='Rotate' rLabel={`${icon.rotate}°`} />
+        <PanelElementContent>
+          <Slider
+            min={-180}
+            max={180}
+            value={icon.rotate}
+            onChange={(e) =>
+              onChange({
+                ...iconData,
+                icon: { ...icon, rotate: Number(e.target.value) },
+              })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel
+          lLabel='Border width'
+          rLabel={`${icon.borderWidth} px`}
+        />
+        <PanelElementContent>
+          <Slider
+            min={1}
+            max={4}
+            step={0.1}
+            value={icon.borderWidth}
+            onChange={(e) =>
+              onChange({
+                ...iconData,
+                icon: { ...icon, borderWidth: Number(e.target.value) },
               })
             }
           />
@@ -69,6 +107,18 @@ const IconPanel = ({
             color={icon.borderColor}
             onChange={(e) =>
               onChange({ ...iconData, icon: { ...icon, borderColor: e } })
+            }
+          />
+        </PanelElementContent>
+      </PanelElement>
+
+      <PanelElement>
+        <PanelElementLabel lLabel='Fill color' />
+        <PanelElementContent>
+          <ColorPicker
+            color={icon.fillColor}
+            onChange={(e) =>
+              onChange({ ...iconData, icon: { ...icon, fillColor: e } })
             }
           />
         </PanelElementContent>

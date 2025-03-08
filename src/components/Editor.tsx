@@ -31,7 +31,14 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
             style={{ borderRadius: background.rounded + 'px' }}
           >
             <icon.Icon
-              style={{ fontSize: icon.size + 'px', stroke: icon.borderColor }}
+              style={{
+                width: icon.size + 'px',
+                height: icon.size + 'px',
+                rotate: icon.rotate + 'deg',
+                strokeWidth: icon.borderWidth + 'px',
+                stroke: icon.borderColor,
+                fill: icon.fillColor,
+              }}
             />
           </div>
         </div>

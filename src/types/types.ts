@@ -4,7 +4,10 @@ export type IconData = {
   icon: {
     Icon: IconType;
     size: number;
+    rotate: number;
+    borderWidth: number;
     borderColor: string;
+    fillColor: string;
   };
   background: {
     rounded: number;
