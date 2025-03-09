@@ -14,7 +14,7 @@
 
 @layer base {
   html {
-    @apply font-bricolage_grotesque;
+    @apply font-bricolage_grotesque select-none;
   }
 
   body {
@@ -32,6 +32,10 @@
   ::-webkit-scrollbar-thumb {
     @apply bg-amber-600 rounded-xl;
   }
+
+  ::selection {
+    @apply bg-amber-600/45;
+  }
 }
 
 @layer components {
@@ -44,7 +48,7 @@
   }
 
   .color-picker {
-    @apply bg-neutral-200/60 rounded-xl overflow-hidden;
+    @apply bg-neutral-200/60 rounded-xl;
   }
 
   .color-picker .react-colorful {
@@ -56,7 +60,7 @@
   }
 
   .color-picker .react-colorful__saturation {
-    @apply !rounded-none;
+    @apply !rounded-t-xl;
   }
 
   .color-picker .react-colorful__last-control {

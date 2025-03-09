@@ -32,7 +32,10 @@ const IconPanel = ({
         />
         <PanelElementContent>
           <IconButton onClick={() => setShowIconPicker(true)}>
-            <icon.Icon className='group-hover:scale-105' />
+            <icon.Icon
+              className='group-hover:scale-105'
+              strokeWidth={icon.borderWidth}
+            />
           </IconButton>
           {showIconPicker && (
             <IconPicker

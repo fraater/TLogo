@@ -31,7 +31,7 @@ const Panel = ({
   }
 
   return (
-    <section className='bg-white rounded-xl p-3.5 shadow-sm w-52 space-y-5.5 overflow-y-auto'>
+    <section className='bg-white rounded-xl p-3.5 shadow-sm w-52 space-y-4.5 overflow-y-auto'>
       {PanelContent && <PanelContent iconData={iconData} onChange={onChange} />}
     </section>
   );
@@ -51,7 +51,9 @@ const PanelElementLabel = ({
   return (
     <div className='flex justify-between items-center text-neutral-800'>
       <span className='text-sm'>{lLabel}</span>
-      {rLabel && <span className='text-xs'>{rLabel}</span>}
+      {rLabel && (
+        <span className='text-xs text-right max-w-[15ch]'>{rLabel}</span>
+      )}
     </div>
   );
 };
