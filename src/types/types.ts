@@ -1,5 +1,10 @@
 import type { IconType } from 'react-icons';
 
+export type IconSize = {
+  iconWidth: number;
+  iconHeight: number;
+};
+
 export type IconData = {
   icon: {
     Icon: IconType;
