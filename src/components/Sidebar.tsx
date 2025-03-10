@@ -30,7 +30,7 @@ const Sidebar = ({ onClick }: { onClick: (id: number) => void }) => {
           isActive={activeElement == el.id}
         />
       ))}
-      <div className='mt-auto font-bold text-xl text-amber-600/80 bg-amber-600/10 aspect-square flex justify-center items-center rounded-full'>
+      <div className='mt-auto font-bold text-xl text-amber-600/80 bg-amber-600/10 border border-amber-600/15 aspect-square flex justify-center items-center rounded-full'>
         <span className='rotate-3'>T</span> <span className='-rotate-3'>L</span>
       </div>
     </aside>

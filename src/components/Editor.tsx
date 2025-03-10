@@ -1,13 +1,15 @@
 import GridBackground from '@/components/GridBackground';
 import DownloadButton from '@/components/DownloadButton';
-import type { IconData, IconSize } from '@/types';
+import DownloadDialog from '@/components/DownloadDialog';
+import type { IconData, IconFormat, IconSize } from '@/types';
 import { useEffect, useRef, useState } from 'react';
-import { toPng } from 'html-to-image';
+import { toPng, toSvg } from 'html-to-image';
 
 const Editor = ({ iconData }: { iconData: IconData }) => {
   const iconRef = useRef<HTMLDivElement | null>(null);
   const iconAreaRef = useRef<HTMLDivElement | null>(null);
   const [iconSize, setIconSize] = useState<IconSize | null>(null);
+  const [showDownloadDialog, setShowDownloadDialog] = useState<boolean>(false);
   const { icon, background } = iconData;
 
   useEffect(() => {
@@ -18,14 +20,23 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
     }
   });
 
-  const handleDownload = () => {
-    iconRef.current &&
-      toPng(iconRef.current).then((dataURL) => {
+  const handleDownload = (format: IconFormat) => {
+    if (iconRef.current) {
+      const downloadIcon = (dataURL: string) => {
         const link = document.createElement('a');
-        link.download = 'TLogo-icon.png';
+        link.download = `TLogo-icon.${format}`;
         link.href = dataURL;
         link.click();
-      });
+      };
+
+      format == 'png'
+        ? toPng(iconRef.current).then((dataURL) => {
+            downloadIcon(dataURL);
+          })
+        : toSvg(iconRef.current).then((dataURL) => {
+            downloadIcon(dataURL);
+          });
+    }
   };
 
   return (
@@ -62,8 +73,14 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
         </div>
         <DownloadButton
           className='absolute right-3 bottom-3'
-          onDownload={handleDownload}
+          onClick={() => setShowDownloadDialog(true)}
         />
+        {showDownloadDialog && (
+          <DownloadDialog
+            onDownload={handleDownload}
+            onClose={() => setShowDownloadDialog(false)}
+          />
+        )}
       </GridBackground>
     </section>
   );

@@ -4,15 +4,15 @@ import { MdSaveAlt } from 'react-icons/md';
 
 const DownloadButton = ({
   className,
-  onDownload,
-}: React.ComponentProps<'button'> & { onDownload: () => void }) => {
+  onClick,
+}: React.ComponentProps<'button'>) => {
   return (
     <IconButton
       className={twMerge(
         'rounded-full size-8 border border-neutral-300',
         className
       )}
-      onClick={onDownload}
+      onClick={onClick}
     >
       <MdSaveAlt />
     </IconButton>

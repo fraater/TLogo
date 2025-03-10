@@ -1,5 +1,7 @@
 import type { IconType } from 'react-icons';
 
+export type IconFormat = 'png' | 'svg';
+
 export type IconSize = {
   iconWidth: number;
   iconHeight: number;
