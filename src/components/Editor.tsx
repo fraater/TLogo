@@ -1,11 +1,25 @@
 import GridBackground from '@/components/GridBackground';
+import UndoButton from '@/components/UndoButton';
+import RedoButton from '@/components/RedoButton';
 import DownloadButton from '@/components/DownloadButton';
 import DownloadDialog from '@/components/DownloadDialog';
 import type { IconData, IconFormat, IconSize } from '@/types';
 import { useEffect, useRef, useState } from 'react';
 import { toPng, toSvg } from 'html-to-image';
 
-const Editor = ({ iconData }: { iconData: IconData }) => {
+const Editor = ({
+  iconData,
+  onUndo,
+  onRedo,
+  canUndo,
+  canRedo,
+}: {
+  iconData: IconData;
+  onUndo: () => void;
+  onRedo: () => void;
+  canUndo: boolean;
+  canRedo: boolean;
+}) => {
   const iconRef = useRef<HTMLDivElement | null>(null);
   const iconAreaRef = useRef<HTMLDivElement | null>(null);
   const [iconSize, setIconSize] = useState<IconSize | null>(null);
@@ -70,6 +84,10 @@ const Editor = ({ iconData }: { iconData: IconData }) => {
               />
             </div>
           </div>
+        </div>
+        <div className='absolute right-3 top-3 space-y-1.5'>
+          <UndoButton onUndo={onUndo} disabled={!canUndo} />
+          <RedoButton onRedo={onRedo} disabled={!canRedo} />
         </div>
         <DownloadButton
           className='absolute right-3 bottom-3'
