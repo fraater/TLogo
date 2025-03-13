@@ -1,5 +1,5 @@
 import IconButton from '@/components/IconButton';
-import { MdClose } from 'react-icons/md';
+import { PiXBold } from 'react-icons/pi';
 import { twMerge } from 'tailwind-merge';
 import { cn } from '@/utils';
 
@@ -54,10 +54,10 @@ const DialogHeader = ({
     >
       {label && <span className='font-semibold text-neutral-800'>{label}</span>}
       <IconButton
-        className={cn('bg-transparent size-5.5 p-0.5', { 'ml-auto': !label })}
+        className={cn('bg-transparent size-5 p-0.5', { 'ml-auto': !label })}
         onClick={() => onClose()}
       >
-        <MdClose />
+        <PiXBold />
       </IconButton>
     </div>
   );

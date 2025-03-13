@@ -5,7 +5,7 @@ import Dialog, {
 } from '@/components/Dialog';
 import IconButton from '@/components/IconButton';
 import type { IconFormat } from '@/types';
-import { MdImage } from 'react-icons/md';
+import { PiFilePngDuotone, PiFileSvgDuotone } from 'react-icons/pi';
 
 const DownloadDialog = ({
   onDownload,
@@ -26,7 +26,7 @@ const DownloadDialog = ({
               onClose();
             }}
           >
-            <MdImage />
+            <PiFilePngDuotone />
             <span className='text-sm font-semibold'>Download as PNG</span>
           </IconButton>
           <IconButton
@@ -36,7 +36,7 @@ const DownloadDialog = ({
               onClose();
             }}
           >
-            <MdImage />
+            <PiFileSvgDuotone />
             <span className='text-sm font-semibold'>Download as SVG</span>
           </IconButton>
         </DialogContent>

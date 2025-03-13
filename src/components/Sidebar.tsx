@@ -1,16 +1,16 @@
 import type { IconType } from 'react-icons';
 import { useState } from 'react';
-import { MdDesignServices, MdPhotoLibrary } from 'react-icons/md';
+import { PiPenNibDuotone, PiImageDuotone } from 'react-icons/pi';
 import { cn } from '@/utils';
 
 const sidebarElements = [
   {
     id: 1,
-    Icon: MdDesignServices,
+    Icon: PiPenNibDuotone,
   },
   {
     id: 2,
-    Icon: MdPhotoLibrary,
+    Icon: PiImageDuotone,
   },
 ];
 
@@ -30,8 +30,8 @@ const Sidebar = ({ onClick }: { onClick: (id: number) => void }) => {
           isActive={activeElement == el.id}
         />
       ))}
-      <div className='mt-auto font-bold text-xl text-amber-600/80 bg-amber-600/10 border border-amber-600/15 aspect-square flex justify-center items-center rounded-full'>
-        <span className='rotate-3'>T</span> <span className='-rotate-3'>L</span>
+      <div className='mt-auto font-extrabold text-lg text-amber-600/80 bg-amber-600/10 border border-amber-600/15 size-10 flex justify-center items-center rounded-full space-x-[1px]'>
+        <span className='rotate-6'>T</span> <span className='-rotate-6'>L</span>
       </div>
     </aside>
   );

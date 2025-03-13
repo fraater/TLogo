@@ -15,13 +15,13 @@ const App = () => {
         size: 200,
         rotate: 0,
         borderWidth: 2,
-        borderColor: '#ff8000',
-        fillColor: '#ffffff00',
+        borderColor: '#000000',
+        fillColor: '#ffffff',
       },
       background: {
         rounded: 50,
         padding: 10,
-        bgColor: '#000000',
+        bgColor: '#ff8000',
       },
     },
   ]);

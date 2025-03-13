@@ -1,6 +1,6 @@
 import IconButton from '@/components/IconButton';
 import { twMerge } from 'tailwind-merge';
-import { MdSaveAlt } from 'react-icons/md';
+import { PiDownloadSimpleBold } from 'react-icons/pi';
 
 const DownloadButton = ({
   className,
@@ -14,7 +14,7 @@ const DownloadButton = ({
       )}
       onClick={onClick}
     >
-      <MdSaveAlt />
+      <PiDownloadSimpleBold />
     </IconButton>
   );
 };
