@@ -28,11 +28,9 @@ const Sidebar = ({ onClick }: { onClick: (id: number) => void }) => {
             onClick(id);
           }}
           isActive={activeElement == el.id}
+          key={el.id}
         />
       ))}
-      <div className='mt-auto font-extrabold text-lg text-amber-600/80 bg-amber-600/10 border border-amber-600/15 size-10 flex justify-center items-center rounded-full space-x-[1px]'>
-        <span className='rotate-6'>T</span> <span className='-rotate-6'>L</span>
-      </div>
     </aside>
   );
 };

@@ -27,12 +27,23 @@ const Editor = ({
   const { icon, background } = iconData;
 
   useEffect(() => {
-    if (iconAreaRef.current) {
-      const { width, height } = iconAreaRef.current.getBoundingClientRect();
+    const updateIconSize = () => {
+      if (iconAreaRef.current) {
+        const { width, height } = iconAreaRef.current.getBoundingClientRect();
 
-      setIconSize({ iconWidth: width, iconHeight: height });
+        setIconSize({ iconWidth: width, iconHeight: height });
+      }
+    };
+
+    const observer = new ResizeObserver(updateIconSize);
+
+    if (iconAreaRef.current) {
+      observer.observe(iconAreaRef.current);
+      updateIconSize();
     }
-  });
+
+    return () => observer.disconnect();
+  }, []);
 
   const handleDownload = (format: IconFormat) => {
     if (iconRef.current) {
@@ -69,7 +80,7 @@ const Editor = ({
           >
             <div
               ref={iconRef}
-              className='size-full flex justify-center items-center'
+              className='size-full flex justify-center items-center overflow-hidden'
               style={{
                 borderRadius: background.rounded + 'px',
                 backgroundColor: background.bgColor,

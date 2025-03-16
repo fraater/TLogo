@@ -26,7 +26,7 @@ const BackgroundPanel = ({
         <PanelElementContent>
           <Slider
             min={0}
-            max={200}
+            max={400}
             value={background.rounded}
             onChange={(e) =>
               onChange({

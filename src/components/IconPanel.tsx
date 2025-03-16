@@ -52,8 +52,8 @@ const IconPanel = ({
         <PanelElementLabel lLabel='Size' rLabel={`${icon.size} px`} />
         <PanelElementContent>
           <Slider
-            min={50}
-            max={400}
+            min={100}
+            max={800}
             value={icon.size}
             onChange={(e) =>
               onChange({

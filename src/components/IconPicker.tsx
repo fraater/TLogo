@@ -25,6 +25,7 @@ const IconPicker = ({
                 onChange(Icon);
                 onClose();
               }}
+              key={Icon.name}
             >
               <Icon />
             </IconButton>
