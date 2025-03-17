@@ -3,7 +3,7 @@ import Sidebar from '@/components/Sidebar';
 import Editor from '@/components/Editor';
 import debounce from 'lodash.debounce';
 import type { IconData } from '@/types';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { LuCarrot } from 'react-icons/lu';
 
 const App = () => {
@@ -30,6 +30,10 @@ const App = () => {
     iconDataHistory[currentIconDataIndex]
   );
 
+  const canUndoCheck: boolean = currentIconDataIndex > 0;
+  const canRedoCheck: boolean =
+    currentIconDataIndex < iconDataHistory.length - 1;
+
   const debouncedAddIconDataHistory = useCallback(
     debounce((data: IconData) => {
       setIconDataHistory((prev) => [
@@ -49,18 +53,35 @@ const App = () => {
   };
 
   const handleUndo = () => {
-    const currentIndex = currentIconDataIndex;
+    if (canUndoCheck) {
+      const currentIndex = currentIconDataIndex;
 
-    setCurrentIconDataIndex(currentIndex - 1);
-    setIconData(iconDataHistory[currentIndex - 1]);
+      setCurrentIconDataIndex(currentIndex - 1);
+      setIconData(iconDataHistory[currentIndex - 1]);
+    }
   };
 
   const handleRedo = () => {
-    const currentIndex = currentIconDataIndex;
+    if (canRedoCheck) {
+      const currentIndex = currentIconDataIndex;
 
-    setCurrentIconDataIndex(currentIndex + 1);
-    setIconData(iconDataHistory[currentIndex + 1]);
+      setCurrentIconDataIndex(currentIndex + 1);
+      setIconData(iconDataHistory[currentIndex + 1]);
+    }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.ctrlKey) {
+        if (e.shiftKey && e.code == 'KeyZ') handleRedo();
+        else if (e.code == 'KeyZ') handleUndo();
+      }
+    };
+
+    document.addEventListener('keydown', handleKeyDown);
+
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [handleUndo, handleRedo]);
 
   return (
     <main className='flex h-screen p-3 pl-0'>
@@ -70,8 +91,8 @@ const App = () => {
         iconData={iconData}
         onUndo={handleUndo}
         onRedo={handleRedo}
-        canUndo={currentIconDataIndex > 0}
-        canRedo={currentIconDataIndex < iconDataHistory.length - 1}
+        canUndo={canUndoCheck}
+        canRedo={canRedoCheck}
       />
     </main>
   );
