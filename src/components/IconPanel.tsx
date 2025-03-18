@@ -26,7 +26,7 @@ const IconPanel = ({
         <PanelElementLabel
           lLabel='Icon'
           rLabel={icon.Icon.name
-            .replace('Lu', '')
+            .slice(2)
             .split(/(?=[A-Z])/)
             .join(' ')}
         />
