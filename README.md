@@ -18,7 +18,7 @@ If you don't already have it download [pnpm](https://pnpm.io/) first
 $ git clone https://github.com/fraater/TLogo
 
 # Go into the repository
-$ cd tlogo
+$ cd TLogo
 
 # Install dependencies
 $ pnpm install
