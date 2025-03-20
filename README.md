@@ -15,7 +15,7 @@ If you don't already have it download [pnpm](https://pnpm.io/) first
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/fraater/tlogo
+$ git clone https://github.com/fraater/TLogo
 
 # Go into the repository
 $ cd tlogo
